@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+:root {
+  /**
+   * FONTS
+   */
+
+  --theme-font-family-default: 'Open Sans', sans-serif;
+  --theme-font-family-monospace: monospace;
+
+  --theme-font-weight-normal: 400;
+  --theme-font-weight-semibold: 600;
+  --theme-font-weight-bold: 700;
+
+  --theme-font-size-h1: 2.2rem;
+  --theme-font-size-h2: 1.8rem;
+  --theme-font-size-h3: 1.6rem;
+  --theme-font-size-h4: 1.4rem;
+  --theme-font-size-h5: 1.2rem;
+  --theme-font-size-h6: 1.2rem;
+  --theme-font-size-text: 1rem;
+  --theme-font-size-small: 0.85rem;
+  --theme-font-size-mono: 0.925rem;
+
+  font-size: 14px; /* establish `rem` unit basis */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--theme-font-family-default);
+  background-color: white;
+  color: #121212;
+}
+
+h1 {
+  cursor: default;
+  font-weight: var(--theme-font-weight-semibold);
+  font-size: var(--theme-font-size-h1);
+}
+
+h2 {
+  cursor: default;
+  font-weight: var(--theme-font-weight-semibold);
+  font-size: var(--theme-font-size-h2);
+}
+
+h3 {
+  cursor: default;
+  font-weight: var(--theme-font-weight-semibold);
+  font-size: var(--theme-font-size-h3);
+}
+
+h4 {
+  cursor: default;
+  font-weight: var(--theme-font-weight-semibold);
+  font-size: var(--theme-font-size-h4);
+}
+
+h5,
+h6 {
+  cursor: default;
+  font-weight: var(--theme-font-weight-semibold);
+  color: #555;
+}
+h5 {
+  font-size: var(--theme-font-size-h5);
+}
+h6 {
+  font-size: var(--theme-font-size-h6);
+  font-style: italic;
+}
+
+p {
+  cursor: default;
+  font-size: var(--theme-font-size-text);
+}
+
+small {
+  font-size: var(--theme-font-size-small);
+}
+
+a[href],
+a[href]:hover,
+a[href]:link,
+a[href]:link:hover,
+a[href]:active,
+a[href]:active:hover,
+a[href]:visited,
+a[href]:visited:hover {
+  font-weight: var(--theme-font-weight-semibold);
+  font-size: inherit;
+  color: blue;
+  text-decoration: none;
+}
+a[href]:hover,
+a[href]:link:hover,
+a[href]:active:hover,
+a[href]:visited:hover {
+  cursor: pointer;
+}
+
+pre,
+code {
+  cursor: default;
+  font-family: var(--theme-font-family-monospace);
+  font-size: var(--theme-font-size-mono);
+}
+pre {
+  white-space: preserve nowrap;
+}
+small code {
+  font-size: var(--theme-font-size-small);
+}
+
+strong {
+  font-weight: var(--theme-font-weight-bold);
+}
