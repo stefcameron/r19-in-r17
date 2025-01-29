@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useState } from 'react';
 import './HelloWorld.css';
 
-interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren<object> {
   message?: string;
 }
 

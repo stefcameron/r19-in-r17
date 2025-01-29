@@ -15,7 +15,7 @@
     "noUncheckedIndexedAccess": true,
     "paths": {
       // for aliases, also config eslint.config.mjs, webpack.config.mjs, and jest.config.mjs
-      "testingUtility": ["./tools/tests/testingUtility.ts"]
+      // "testingUtility": ["./tools/tests/testingUtility.ts"]
     },
     "resolveJsonModule": true,
     "sourceMap": true,

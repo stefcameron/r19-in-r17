@@ -47,7 +47,9 @@ const importPluginSettings = {
     // @see https://www.npmjs.com/package/eslint-import-resolver-alias
     alias: {
       // also config eslint.config.mjs, tsconfig.json, and jest.config.mjs
-      map: [['^testingUtility$', './tools/tests/testingUtility.ts']],
+      map: [
+        // ['^testingUtility$', './tools/tests/testingUtility.ts']
+      ],
       extensions: importPluginExtensions,
     },
 

@@ -12,11 +12,7 @@ and figure out why it isn't working if something comes up.
 - Styling: Pure CSS styles
   - Simply import your `.css` files into modules that use them.
   - Use the `classnames` package (`import classnames from 'classnames'`) to combine classes.
-- Test runner: [Jest](https://jestjs.io/)
-- Testing framework: [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-  - All the tools come through the "global" `import { ... } from 'testingUtility'` module which
-    can be imported from anywhere (path is aliased in Jest config).
-  - Includes [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom) extensions.
+- Test runner: None
 - Lint: [ESLint](https://eslint.org/)
   - Configured for the browser in `/src`, for Jest in `/src/**/__tests__` directories, and for
     node everywhere else.
@@ -60,8 +56,6 @@ $ npm build:dev
 ```bash
 $ npm test
 # checks formatting, linting, build, and tests
-$ npm run test:unit
-# runs unit tests only
 $ npm run lint
 # full format check (style, lint, typings)
 $ npm run fmt:check
