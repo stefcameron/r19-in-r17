@@ -123,7 +123,7 @@ const baseRules = {
   'guard-for-in': 'error',
   'no-alert': 'error',
   'no-caller': 'error',
-  'no-console': 'error',
+  'no-console': 'off', // this is just a demo app
   'no-else-return': 'error',
   'no-eq-null': 'error',
   'no-eval': 'error',

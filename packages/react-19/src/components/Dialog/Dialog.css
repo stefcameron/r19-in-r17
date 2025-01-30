@@ -1,0 +1,44 @@
+.dialog__shadow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #00000020;
+}
+
+.dialog__frame {
+  --dialog-pad: 4px;
+  --dialog-gap: calc(var(--dialog-pad) * 2);
+  --dialog-gutter: calc(var(--dialog-pad) * 4);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--dialog-gutter);
+
+  background-color: #fff;
+  border-radius: var(--dialog-gap);
+  box-shadow: 4px 4px 20px 8px #00000030;
+}
+
+.dialog__frame > h2 {
+  margin-bottom: var(--dialog-gutter);
+}
+
+.dialog__frame > p {
+  margin-bottom: var(--dialog-gap);
+}
+.dialog__frame > p:last-child {
+  margin-bottom: 0;
+}
+
+.dialog__frame > button {
+  margin-top: var(--dialog-gap);
+}
