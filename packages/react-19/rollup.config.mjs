@@ -10,7 +10,7 @@ import { dts } from 'rollup-plugin-dts';
 
 const require = createRequire(import.meta.url);
 const babelConfig = require(
-  path.resolve(import.meta.dirname, './babel.config.js')
+  path.resolve(import.meta.dirname, '../../babel.config.js')
 );
 
 const input = path.resolve(

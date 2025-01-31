@@ -47,7 +47,12 @@ const importPluginSettings = {
     // @see https://www.npmjs.com/package/eslint-import-resolver-alias
     alias: {
       // also config eslint.config.mjs, tsconfig.json, and jest.config.mjs
-      map: [['^testingUtility$', './tools/tests/testingUtility.ts']],
+      map: [
+        [
+          '^r19-testingUtility$',
+          './packages/react-19/tools/tests/testingUtility.ts',
+        ],
+      ],
       extensions: importPluginExtensions,
     },
 
@@ -276,7 +281,7 @@ const createToolingConfig = (isModule = true, isTypescript = false) => ({
       ? ['**/*.{ts,mts}']
       : ['**/*.{js,mjs}']
     : ['**/*.{js,cjs}'],
-  ignores: ['src/**/*.*', 'tools/tests/**/*.*'],
+  ignores: ['packages/*/src/**/*.*', 'packages/*/tools/tests/**/*.*'],
   plugins: {
     ...basePlugins,
     ...(isModule ? { import: importPlugin } : {}),
@@ -320,7 +325,9 @@ const createToolingConfig = (isModule = true, isTypescript = false) => ({
  * @returns ESLint config.
  */
 const createSourceJSConfig = (isReact = false) => ({
-  files: isReact ? ['src/**/*.{js,jsx}'] : ['src/**/*.js'],
+  files: isReact
+    ? ['packages/*/src/**/*.{js,jsx}']
+    : ['packages/*/src/**/*.js'],
   plugins: {
     ...basePlugins,
     import: importPlugin,
@@ -368,7 +375,7 @@ const createSourceJSConfig = (isReact = false) => ({
 });
 
 const createSourceTSConfig = (isReact = false) => ({
-  files: isReact ? ['src/**/*.tsx'] : ['src/**/*.ts'],
+  files: isReact ? ['packages/*/src/**/*.tsx'] : ['packages/*/src/**/*.ts'],
   plugins: {
     ...basePlugins,
     import: importPlugin,
@@ -422,12 +429,12 @@ const createSourceTSConfig = (isReact = false) => ({
 const createTestConfig = (isTypescript = false) => ({
   files: isTypescript
     ? [
-        'src/**/__tests__/**/?(*.)+(spec|test).{ts,tsx}',
-        'tools/tests/**/*.{ts,tsx}',
+        'packages/*/src/**/__tests__/**/?(*.)+(spec|test).{ts,tsx}',
+        'packages/*/tools/tests/**/*.{ts,tsx}',
       ]
     : [
-        'src/**/__tests__/**/?(*.)+(spec|test).{js,jsx}',
-        'tools/tests/**/*.{js,jsx}',
+        'packages/*/src/**/__tests__/**/?(*.)+(spec|test).{js,jsx}',
+        'packages/*/tools/tests/**/*.{js,jsx}',
       ],
   plugins: {
     ...basePlugins,

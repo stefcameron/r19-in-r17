@@ -1,4 +1,4 @@
-import { render, screen, a11yTest } from 'testingUtility';
+import { render, screen, a11yTest } from 'r19-testingUtility';
 import { App } from '../App';
 
 describe('/components/App', () => {

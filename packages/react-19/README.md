@@ -14,7 +14,7 @@ and figure out why it isn't working if something comes up.
   - Use the `classnames` package (`import classnames from 'classnames'`) to combine classes.
 - Test runner: [Jest](https://jestjs.io/)
 - Testing framework: [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-  - All the tools come through the "global" `import { ... } from 'testingUtility'` module which
+  - All the tools come through the "global" `import { ... } from 'r19-testingUtility'` module which
     can be imported from anywhere (path is aliased in Jest config).
   - Includes [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom) extensions.
 - Lint: [ESLint](https://eslint.org/)

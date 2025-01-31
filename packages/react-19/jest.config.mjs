@@ -77,7 +77,7 @@ const mkConfig = function () {
       // NOTE: This entry makes it possible for `*.spec.js` files to reference
       //  the `./testingUtility.js` module in the /tools/tests directory __without__
       //  using (potentially very long) relative directory paths, just as
-      //  `import { render } from 'testingUtility'` because `__dirname` will
+      //  `import { render } from 'r19-testingUtility'` because `__dirname` will
       //  always be the directory where this (jest.config.js) is located.
       // @see https://testing-library.com/docs/react-testing-library/setup#configuring-jest-with-test-utils
       //  for the configuration pattern.
@@ -86,7 +86,7 @@ const mkConfig = function () {
 
     // for aliases, also config eslint.config.mjs, webpack.config.mjs, and tsconfig.json
     moduleNameMapper: {
-      '^testingUtility$': '<rootDir>/tools/tests/testingUtility.ts',
+      '^r19-testingUtility$': '<rootDir>/tools/tests/testingUtility.ts',
     },
 
     setupFilesAfterEnv: ['<rootDir>/tools/tests/jestSetup.js'],

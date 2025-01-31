@@ -6,19 +6,13 @@ settings:
 
 importers:
 
-  .: {}
-
-  packages/react-17:
-    dependencies:
-      '@monorepo/react-19':
-        specifier: workspace:^1.0.0
-        version: link:../react-19
+  .:
     devDependencies:
       '@babel/cli':
         specifier: ^7.26.4
         version: 7.26.4(@babel/core@7.26.7)
       '@babel/core':
-        specifier: ^7.26.0
+        specifier: ^7.26.7
         version: 7.26.7
       '@babel/eslint-parser':
         specifier: ^7.26.5
@@ -36,28 +30,22 @@ importers:
         specifier: ^7.25.9
         version: 7.25.9(@babel/core@7.26.7)
       '@babel/preset-env':
-        specifier: ^7.26.0
+        specifier: ^7.26.7
         version: 7.26.7(@babel/core@7.26.7)
       '@babel/preset-react':
         specifier: ^7.26.3
         version: 7.26.3(@babel/core@7.26.7)
       '@eslint/js':
-        specifier: ^9.17.0
+        specifier: ^9.19.0
         version: 9.19.0
       '@types/node':
-        specifier: ^22.10.7
+        specifier: ^22.12.0
         version: 22.12.0
-      '@types/react':
-        specifier: ^17.0.83
-        version: 17.0.83
-      '@types/react-dom':
-        specifier: ^17.0.26
-        version: 17.0.26(@types/react@17.0.83)
       '@typescript-eslint/eslint-plugin':
-        specifier: ^8.21.0
+        specifier: ^8.22.0
         version: 8.22.0(@typescript-eslint/parser@8.22.0(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
       '@typescript-eslint/parser':
-        specifier: ^8.21.0
+        specifier: ^8.22.0
         version: 8.22.0(eslint@9.19.0)(typescript@5.7.3)
       babel-jest:
         specifier: ^29.7.0
@@ -68,17 +56,8 @@ importers:
       babel-plugin-module-resolver:
         specifier: ^5.0.2
         version: 5.0.2
-      classnames:
-        specifier: ^2.5.1
-        version: 2.5.1
-      clean-webpack-plugin:
-        specifier: ^4.0.0
-        version: 4.0.0(webpack@5.97.1)
-      css-loader:
-        specifier: ^7.1.2
-        version: 7.1.2(webpack@5.97.1)
       eslint:
-        specifier: ^9.18.0
+        specifier: ^9.19.0
         version: 9.19.0
       eslint-config-prettier:
         specifier: ^10.0.1
@@ -113,15 +92,40 @@ importers:
       globals:
         specifier: ^15.14.0
         version: 15.14.0
-      html-webpack-plugin:
-        specifier: ^5.6.3
-        version: 5.6.3(webpack@5.97.1)
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+
+  packages/react-17:
+    dependencies:
+      '@monorepo/react-19':
+        specifier: workspace:^1.0.0
+        version: link:../react-19
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.83
+        version: 17.0.83
+      '@types/react-dom':
+        specifier: ^17.0.26
+        version: 17.0.26(@types/react@17.0.83)
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
+      clean-webpack-plugin:
+        specifier: ^4.0.0
+        version: 4.0.0(webpack@5.97.1)
+      css-loader:
+        specifier: ^7.1.2
+        version: 7.1.2(webpack@5.97.1)
+      html-webpack-plugin:
+        specifier: ^5.6.3
+        version: 5.6.3(webpack@5.97.1)
       react:
         specifier: ^17.0.2
         version: 17.0.2
@@ -149,36 +153,6 @@ importers:
 
   packages/react-19:
     devDependencies:
-      '@babel/cli':
-        specifier: ^7.26.4
-        version: 7.26.4(@babel/core@7.26.7)
-      '@babel/core':
-        specifier: ^7.26.7
-        version: 7.26.7
-      '@babel/eslint-parser':
-        specifier: ^7.26.5
-        version: 7.26.5(@babel/core@7.26.7)(eslint@9.19.0)
-      '@babel/eslint-plugin':
-        specifier: ^7.25.9
-        version: 7.25.9(@babel/eslint-parser@7.26.5(@babel/core@7.26.7)(eslint@9.19.0))(eslint@9.19.0)
-      '@babel/plugin-syntax-dynamic-import':
-        specifier: ^7.8.3
-        version: 7.8.3(@babel/core@7.26.7)
-      '@babel/plugin-transform-react-jsx':
-        specifier: ^7.25.9
-        version: 7.25.9(@babel/core@7.26.7)
-      '@babel/plugin-transform-runtime':
-        specifier: ^7.25.9
-        version: 7.25.9(@babel/core@7.26.7)
-      '@babel/preset-env':
-        specifier: ^7.26.7
-        version: 7.26.7(@babel/core@7.26.7)
-      '@babel/preset-react':
-        specifier: ^7.26.3
-        version: 7.26.3(@babel/core@7.26.7)
-      '@eslint/js':
-        specifier: ^9.19.0
-        version: 9.19.0
       '@rollup/plugin-babel':
         specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.26.7)(@types/babel__core@7.20.5)(rollup@4.32.1)
@@ -212,30 +186,12 @@ importers:
       '@types/jest-axe':
         specifier: ^3.5.9
         version: 3.5.9
-      '@types/node':
-        specifier: ^22.12.0
-        version: 22.12.0
       '@types/react':
         specifier: ^19.0.8
         version: 19.0.8
       '@types/react-dom':
         specifier: ^19.0.3
         version: 19.0.3(@types/react@19.0.8)
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^8.22.0
-        version: 8.22.0(@typescript-eslint/parser@8.22.0(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3)
-      '@typescript-eslint/parser':
-        specifier: ^8.22.0
-        version: 8.22.0(eslint@9.19.0)(typescript@5.7.3)
-      babel-jest:
-        specifier: ^29.7.0
-        version: 29.7.0(@babel/core@7.26.7)
-      babel-loader:
-        specifier: ^9.2.1
-        version: 9.2.1(@babel/core@7.26.7)(webpack@5.97.1)
-      babel-plugin-module-resolver:
-        specifier: ^5.0.2
-        version: 5.0.2
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -245,42 +201,6 @@ importers:
       css-loader:
         specifier: ^7.1.2
         version: 7.1.2(webpack@5.97.1)
-      eslint:
-        specifier: ^9.19.0
-        version: 9.19.0
-      eslint-config-prettier:
-        specifier: ^10.0.1
-        version: 10.0.1(eslint@9.19.0)
-      eslint-import-resolver-alias:
-        specifier: ^1.1.2
-        version: 1.1.2(eslint-plugin-import@2.31.0)
-      eslint-import-resolver-node:
-        specifier: ^0.3.9
-        version: 0.3.9
-      eslint-import-resolver-typescript:
-        specifier: ^3.7.0
-        version: 3.7.0(eslint-plugin-import@2.31.0)(eslint@9.19.0)
-      eslint-plugin-import:
-        specifier: ^2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.22.0(eslint@9.19.0)(typescript@5.7.3))(eslint-import-resolver-typescript@3.7.0)(eslint@9.19.0)
-      eslint-plugin-jest:
-        specifier: ^28.11.0
-        version: 28.11.0(@typescript-eslint/eslint-plugin@8.22.0(@typescript-eslint/parser@8.22.0(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(typescript@5.7.3))(eslint@9.19.0)(jest@29.7.0(@types/node@22.12.0))(typescript@5.7.3)
-      eslint-plugin-jest-dom:
-        specifier: ^5.5.0
-        version: 5.5.0(@testing-library/dom@10.4.0)(eslint@9.19.0)
-      eslint-plugin-react:
-        specifier: ^7.37.4
-        version: 7.37.4(eslint@9.19.0)
-      eslint-plugin-react-hooks:
-        specifier: ^5.1.0
-        version: 5.1.0(eslint@9.19.0)
-      eslint-plugin-testing-library:
-        specifier: ^7.1.1
-        version: 7.1.1(eslint@9.19.0)(typescript@5.7.3)
-      globals:
-        specifier: ^15.14.0
-        version: 15.14.0
       html-webpack-plugin:
         specifier: ^5.6.3
         version: 5.6.3(webpack@5.97.1)
@@ -296,12 +216,6 @@ importers:
       jest-transform-stub:
         specifier: ^2.0.0
         version: 2.0.0
-      lodash-es:
-        specifier: ^4.17.21
-        version: 4.17.21
-      prettier:
-        specifier: ^3.4.2
-        version: 3.4.2
       react:
         specifier: ^19.0.0
         version: 19.0.0
