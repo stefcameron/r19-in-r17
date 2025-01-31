@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { Dialog } from '../Dialog/Dialog';
 import './App.css';
 
@@ -48,8 +47,7 @@ export const App = () => {
           <button onClick={handleOpenClick}>Open Dialog</button>
         </section>
       </div>
-      {show &&
-        createPortal(<Dialog onClose={handleDialogClose} />, document.body)}
+      {show && <Dialog onClose={handleDialogClose} />}
     </>
   );
 };

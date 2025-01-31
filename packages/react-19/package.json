@@ -1,15 +1,19 @@
 {
   "private": true,
-  "name": "react-19",
+  "name": "@monorepo/react-19",
   "version": "1.0.0",
   "description": "React 19 dialog component",
   "engines": {
     "node": ">=21",
     "pnpm": ">=9"
   },
+  "exports": {
+    "import": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
+  },
   "scripts": {
-    "build": "webpack",
-    "build:dev": "NODE_ENV=development webpack",
+    "build:clean": "rm -rf ./dist",
+    "build": "pnpm run build:clean && rollup -c rollup.config.mjs",
     "ci:build": "pnpm run build",
     "ci:lint": "pnpm run fmt:check && pnpm run lint",
     "ci:test": "pnpm run test:coverage",
@@ -38,6 +42,11 @@
     "@babel/preset-env": "^7.26.7",
     "@babel/preset-react": "^7.26.3",
     "@eslint/js": "^9.19.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -76,6 +85,10 @@
     "prettier": "^3.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "rollup": "^4.32.1",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-import-css": "^3.5.8",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rtvjs": "^5.0.0",
     "style-loader": "^4.0.0",
     "ts-jest": "^29.2.5",
