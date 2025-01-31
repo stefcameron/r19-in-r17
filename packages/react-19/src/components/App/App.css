@@ -6,6 +6,10 @@
   width: 100vw;
 }
 
+.app > h1 {
+  margin-bottom: 24px;
+}
+
 .app > section {
   margin-bottom: 24px;
 }

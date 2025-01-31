@@ -9,6 +9,10 @@ importers:
   .: {}
 
   packages/react-17:
+    dependencies:
+      '@monorepo/react-19':
+        specifier: workspace:^1.0.0
+        version: link:../react-19
     devDependencies:
       '@babel/cli':
         specifier: ^7.26.4

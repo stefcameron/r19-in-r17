@@ -9,7 +9,7 @@
     "pnpm": ">=9"
   },
   "scripts": {
-    "build": "pnpm -r --if-present --parallel run build",
+    "build": "pnpm --filter '@monorepo/react-19' run build && pnpm --filter '@monorepo/react-17' run build",
     "build:dev": "pnpm -r --if-present --parallel run build:dev",
     "ci:build": "pnpm -r --if-present --parallel run ci:build",
     "ci:lint": "pnpm -r --if-present --parallel run ci:lint",
@@ -19,8 +19,8 @@
     "lint": "pnpm -r --if-present --parallel run lint",
     "lint:code": "pnpm -r --if-present --parallel run lint:code",
     "lint:types": "pnpm -r --if-present --parallel run lint:types",
-    "start": "pnpm --filter 'react-19' build && pnpm --filter 'react-17' run start",
-    "start:19": "pnpm --filter 'react-19' run start",
+    "start": "pnpm --filter '@monorepo/react-19' build && pnpm --filter '@monorepo/react-17' run start",
+    "start:19": "pnpm --filter '@monorepo/react-19' run start",
     "test": "pnpm -r --if-present --parallel run test",
     "verify": "pnpm -r --if-present --parallel run verify"
   },

@@ -92,7 +92,7 @@ const loadBabelConfig = function () {
  * @returns {Object} Webpack build configuration.
  */
 const mkConfig = function () {
-  const outputPath = path.resolve(__dirname, './dist');
+  const outputPath = path.resolve(__dirname, './dist_dev');
   const indexPath = path.resolve(__dirname, './src/index.html');
   const port = parseInt(process.env.PORT ?? 3001);
   const isDevBuild = process.env.NODE_ENV === 'development';

@@ -16,6 +16,7 @@ node_modules/
 
 # Generated builds (deep)
 dist/
+dist_dev/
 
 # Jest coverage results (deep)
 coverage/

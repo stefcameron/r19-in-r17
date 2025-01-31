@@ -23,6 +23,7 @@ export const App = () => {
   };
 
   const handleDialogClose = () => {
+    console.log('[r19][App] handleDialogClose');
     setShow(false);
   };
 
@@ -42,8 +43,10 @@ export const App = () => {
           name="keywords"
           content="react, template, typescript, javascript"
         />
+
+        <h1>React 19 Test Container</h1>
+
         <section>
-          <h1>React 19 Test Container</h1>
           <button onClick={handleOpenClick}>Open Dialog</button>
         </section>
       </div>
