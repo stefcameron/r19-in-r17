@@ -3,6 +3,9 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "noEmit": false, // required to enable Babel (via ts-loader) to process resulting JS
+    "paths": {
+      "@monorepo/*": ["../*/src"]
+    },
     "typeRoots": [
       "../../node_modules/@types",
       "./node_modules/@types",

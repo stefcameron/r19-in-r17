@@ -1,6 +1,10 @@
-import { useState } from 'react';
-import { Dialog } from '../Dialog/Dialog';
+import { useState, version } from 'react';
+import { createPortal } from 'react-dom';
+import { Dialog } from '../../../src/Dialog/Dialog';
 import './App.css';
+
+const majVer = version.split('.')[0];
+const logCtx = `[r${majVer}][App]`;
 
 export const App = () => {
   //
@@ -18,12 +22,12 @@ export const App = () => {
   //
 
   const handleOpenClick = () => {
-    console.log('[r19][App] handleOpenClick');
+    console.log(`${logCtx} handleOpenClick`);
     setShow(true);
   };
 
   const handleDialogClose = () => {
-    console.log('[r19][App] handleDialogClose');
+    console.log(`${logCtx} handleDialogClose`);
     setShow(false);
   };
 
@@ -44,13 +48,13 @@ export const App = () => {
           content="react, template, typescript, javascript"
         />
 
-        <h1>React 19 Test Container</h1>
+        <h1>React {version} Test Container</h1>
 
         <section>
           <button onClick={handleOpenClick}>Open Dialog</button>
         </section>
       </div>
-      {show && <Dialog onClose={handleDialogClose} />}
+      {show && createPortal(<Dialog onClose={handleDialogClose} />, document.body)}
     </>
   );
 };

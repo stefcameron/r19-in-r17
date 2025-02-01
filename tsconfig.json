@@ -10,6 +10,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@monorepo/*": ["./packages/*/src"]
+    },
     "resolveJsonModule": true,
     "strict": true,
     "target": "ESNext", // latest version of ES supported by TypeScript version in use

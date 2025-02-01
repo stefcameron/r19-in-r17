@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect, version } from 'react';
 import './App.css';
 
-// TODO: const loadDialog = () => import('@monorepo/react-19');
+const majVer = version.split('.')[0];
+const logCtx = `[r${majVer}][App]`;
 
 export const App = () => {
   //
@@ -19,19 +20,31 @@ export const App = () => {
   //
 
   const handleOpenClick = () => {
-    console.log('[r17][App] handleOpenClick');
+    console.log(`${logCtx} handleOpenClick`);
     setShow(true);
   };
-
-  // TODO
-  // const handleDialogClose = () => {
-  //   console.log('[r17][App] handleDialogClose');
-  //   setShow(false);
-  // };
 
   //
   // EFFECTS
   //
+
+  useEffect(() => {
+    if (show) {
+      const showDialog = async () => {
+        const { renderDialogRoot } = await import(
+          /* webpackChunkName: "react-19" */ '@monorepo/react-19'
+        );
+        const api = renderDialogRoot({
+          onClose() {
+            console.log(`${logCtx} handleDialogClose`);
+            api.unmount();
+            setShow(false);
+          },
+        });
+      };
+      void showDialog();
+    }
+  }, [show]);
 
   //
   // RENDER
@@ -48,7 +61,7 @@ export const App = () => {
           content="react, template, typescript, javascript"
         />
 
-        <h1>React 17 App</h1>
+        <h1>React {version} App</h1>
 
         <section>
           <button onClick={handleOpenClick}>Open Dialog</button>

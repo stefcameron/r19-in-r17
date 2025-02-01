@@ -9,7 +9,7 @@
     "pnpm": ">=9"
   },
   "scripts": {
-    "build": "pnpm --filter '@monorepo/react-19' run build && pnpm --filter '@monorepo/react-17' run build",
+    "build": "pnpm -r run build",
     "ci:build": "pnpm -r run ci:build",
     "ci:lint": "pnpm run fmt:check && pnpm run lint",
     "ci:test": "pnpm -r --if-present --parallel run ci:test",
@@ -18,8 +18,8 @@
     "lint": "pnpm run lint:code && pnpm run lint:types && pnpm run fmt:check",
     "lint:code": "eslint \"{*,packages/*/src/**/*,packages/*/tools/**/*}.+(js|cjs|mjs|jsx|ts|cts|mts|tsx)\"",
     "lint:types": "pnpm -r --parallel run tsc --noEmit",
-    "start": "pnpm --filter '@monorepo/react-19' build && pnpm --filter '@monorepo/react-17' run start",
-    "start:19": "pnpm --filter '@monorepo/react-19' run start",
+    "start": "pnpm run build && pnpm --filter '@monorepo/react-17' run start",
+    "start:19": "pnpm run build && pnpm --filter '@monorepo/react-19' run start",
     "test": "pnpm run build && pnpm run lint && pnpm -r --if-present --parallel run test",
     "verify": "pnpm run fmt && pnpm run lint:code && pnpm run lint:types"
   },

@@ -9,26 +9,42 @@ import ts from '@rollup/plugin-typescript';
 import { dts } from 'rollup-plugin-dts';
 
 const require = createRequire(import.meta.url);
+const pkg = require(path.resolve(import.meta.dirname, './package.json'));
 const babelConfig = require(
   path.resolve(import.meta.dirname, '../../babel.config.js')
 );
 
-const input = path.resolve(
-  import.meta.dirname,
-  './src/index.ts'
-);
-
+const input = path.resolve(import.meta.dirname, './src/index.ts');
 const output = {
   file: path.resolve(import.meta.dirname, './dist/index.mjs'),
   format: 'esm',
   sourcemap: true,
 };
 
-// no externals for this build; everything bundled, including React/DOM 19
-const external = undefined;
+const externalIds = Object.keys(pkg.peerDependencies || {});
+const external = function (source, importer, isResolved) {
+  // NOTE: if we just provided an array of module names, Rollup would do
+  //  an exact match, but would then miss treating as external any imports
+  //  that are deeper into the package, like 'lodash/merge', for example,
+  //  if we just stated that 'lodash' should be an external package, so we
+  //  have to treat the list of externals as prefixes to the module name
+  // @see https://rollupjs.org/guide/en/#peer-dependencies
+  return !!externalIds.find(ex => source.startsWith(ex));
+};
 
 const tsOptions = {
   tsconfig: path.resolve(import.meta.dirname, './tsconfig.json')
+};
+
+const cjsOptions = {
+  include: 'node_modules/**',
+  // Per option docs: "This is complementary to how `output.exports: "auto"` works in
+  //  Rollup: If a module has a default export and no named exports, requiring
+  //  that module returns the default export. In all other cases, the namespace
+  //  is returned. For external dependencies when using `esmExternals: true`, a
+  //  corresponding interop helper is added."
+  esmExternals: true,
+  requireReturnsDefault: 'auto',
 };
 
 export default [
@@ -41,7 +57,7 @@ export default [
       json(),
       css({ inject: true }), // `inject` causes CSS to be bundled in the JS bundle!
       resolve(),
-      cjs(),
+      cjs(cjsOptions),
       ts(tsOptions),
       babel({
         // NOTE: the `configFile` option to specify the path to the Babel config file to load
@@ -75,7 +91,7 @@ export default [
       json(),
       css({ inject: true }), // `inject` causes CSS to be bundled in the JS bundle!
       resolve(),
-      cjs(),
+      cjs(cjsOptions),
       ts(tsOptions),
       babel({
         // NOTE: the `configFile` option to specify the path to the Babel config file to load

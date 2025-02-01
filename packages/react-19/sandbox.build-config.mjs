@@ -92,8 +92,8 @@ const loadBabelConfig = function () {
  * @returns {Object} Webpack build configuration.
  */
 const mkConfig = function () {
-  const outputPath = path.resolve(__dirname, './dist_dev');
-  const indexPath = path.resolve(__dirname, './src/index.html');
+  const outputPath = path.resolve(__dirname, './dist_sandbox');
+  const indexPath = path.resolve(__dirname, './sandbox/index.html');
   const port = parseInt(process.env.PORT ?? 3001);
   const isDevBuild = process.env.NODE_ENV === 'development';
 
@@ -101,7 +101,7 @@ const mkConfig = function () {
     name: 'react-app',
     mode: isDevBuild ? 'development' : 'production',
     devtool: isDevBuild ? 'eval-source-map' : undefined,
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: path.resolve(__dirname, './sandbox/index.js'),
 
     output: {
       path: outputPath,
