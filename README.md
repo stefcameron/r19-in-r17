@@ -1,3 +1,5 @@
+[![CI](https://github.com/stefcameron/r19-in-r17/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/stefcameron/r19-in-r17/actions/workflows/ci.yml) [![license](https://badgen.now.sh/badge/license/MIT)](./LICENSE)
+
 # r19-in-r17
 
 A prototype monorepo to explore the challenges of async-loading a React 19-based component (`<Dialog />`), provided from a library package ([react-19](./packages/react-19/)) built with Rollup, into a React 17-based [app](./packages/react-17/) built with Webpack.
