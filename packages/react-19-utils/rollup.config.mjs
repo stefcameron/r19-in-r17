@@ -47,6 +47,23 @@ const cjsOptions = {
   requireReturnsDefault: 'auto',
 };
 
+const babelOptions = {
+  // NOTE: the `configFile` option to specify the path to the Babel config file to load
+  //  __DOES NOT WORK__; it doesn't load the file; the only sure way to load the correct
+  //  options is to explicitly load the file ourselves and pass all the options in
+  ...babelConfig,
+
+  exclude: 'node_modules/**',
+  presets: ['@babel/preset-react'],
+
+  // have all Babel helpers reference an external `@babel/runtime` dependency that consumers
+  //  can provide and bundle into their app code; this is the recommendation for library
+  //  modules and we use this in conjunction with `@babel/plugin-transform-runtime` in
+  //  the `babelConfig`
+  // @see https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers
+  babelHelpers: 'runtime',
+};
+
 export default [
   //// ESM source
   {
@@ -59,22 +76,7 @@ export default [
       resolve(),
       cjs(cjsOptions),
       ts(tsOptions),
-      babel({
-        // NOTE: the `configFile` option to specify the path to the Babel config file to load
-        //  __DOES NOT WORK__; it doesn't load the file; the only sure way to load the correct
-        //  options is to explicitly load the file ourselves and pass all the options in
-        ...babelConfig,
-
-        exclude: 'node_modules/**',
-        presets: ['@babel/preset-react'],
-
-        // have all Babel helpers reference an external `@babel/runtime` dependency that consumers
-        //  can provide and bundle into their app code; this is the recommendation for library
-        //  modules and we use this in conjunction with `@babel/plugin-transform-runtime` in
-        //  the `babelConfig`
-        // @see https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers
-        babelHelpers: 'runtime',
-      }),
+      babel(babelOptions),
     ],
   },
 
@@ -93,22 +95,7 @@ export default [
       resolve(),
       cjs(cjsOptions),
       ts(tsOptions),
-      babel({
-        // NOTE: the `configFile` option to specify the path to the Babel config file to load
-        //  __DOES NOT WORK__; it doesn't load the file; the only sure way to load the correct
-        //  options is to explicitly load the file ourselves and pass all the options in
-        ...babelConfig,
-
-        exclude: 'node_modules/**',
-        presets: ['@babel/preset-react'],
-
-        // have all Babel helpers reference an external `@babel/runtime` dependency that consumers
-        //  can provide and bundle into their app code; this is the recommendation for library
-        //  modules and we use this in conjunction with `@babel/plugin-transform-runtime` in
-        //  the `babelConfig`
-        // @see https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers
-        babelHelpers: 'runtime',
-      }),
+      babel(babelOptions),
     ],
   },
 
