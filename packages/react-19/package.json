@@ -23,7 +23,7 @@
     "build": "pnpm run build:clean && rollup -c rollup.config.mjs",
     "ci:build": "pnpm run build",
     "ci:test": "pnpm run test:coverage",
-    "start": "NODE_ENV=development webpack-dev-server -c sandbox.build-config.mjs",
+    "start": "NODE_ENV=development webpack-dev-server -c sandbox-build.config.mjs",
     "test:unit": "jest --passWithNoTests",
     "test:coverage": "jest --passWithNoTests --coverage",
     "test": "pnpm run test:coverage"
